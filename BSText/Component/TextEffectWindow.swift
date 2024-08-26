@@ -419,6 +419,9 @@ import UIKit
         var captureCenter: CGPoint = bs_convertPoint(mag.hostCaptureCenter, fromViewOrWindow: hostView)
         captureCenter = _corrected(captureCenter: captureCenter)
         var captureRect = CGRect()
+        if (captureRect.width<=0 || captureRect.height<=0) {
+            return 0
+        }
         captureRect.size = mag.snapshotSize
         captureRect.origin.x = captureCenter.x - captureRect.size.width / 2
         captureRect.origin.y = captureCenter.y - captureRect.size.height / 2
